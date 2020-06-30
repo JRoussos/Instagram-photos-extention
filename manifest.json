@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "InstaDP",
+    "version": "0.3.1",
+    "description": "ALPHA Version - Instagram full size user photo",
+    "permissions": ["webNavigation", "contextMenus", "tabs", "*://www.instagram.com/*/"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "icons": {
+      "16": "images/img16.png",           
+      "32": "images/img32.png"
+    },
+    "browser_action": {
+        "default_icon": {                    
+          "16": "images/img16.png",           
+          "32": "images/img32.png",           
+          "48": "images/img48.png"            
+        },
+        "default_title": "Click to open current picture on new tab"
+      }
+}
