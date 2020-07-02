@@ -1,4 +1,13 @@
 var header = document.getElementsByClassName('nZSzR');
+var verified = false;
+
+if(header.length > 0){
+    Array.from(header[0].children).forEach(child => {
+        if(child.className.includes("coreSpriteVerifiedBadge")){
+            verified = true;
+        }
+    })
+}
 
 if(header.length > 0){
     var wrap = document.createElement('span');
@@ -13,9 +22,13 @@ if(header.length > 0){
     wrap.appendChild(btn);
     wrap.setAttribute('style', 'margin: 0 -11px 0 8px;');
     
-    if(document.getElementById('btn_id') === null) //insert button only one time
-        header[0].insertBefore(wrap, header[0].children[1]); 
-    
+    if(verified){
+        if(document.getElementById('btn_id') === null) //insert button only one time
+            header[0].insertBefore(wrap, header[0].children[2]);
+    }else{
+        if(document.getElementById('btn_id') === null) //insert button only one time
+            header[0].insertBefore(wrap, header[0].children[1]);  
+    }
 }
 
 function click_handler() {
