@@ -2,11 +2,7 @@ var header = document.getElementsByClassName('nZSzR');
 var verified = false;
 
 if(header.length > 0){
-    Array.from(header[0].children).forEach(child => {
-        if(child.className.includes("coreSpriteVerifiedBadge")){
-            verified = true;
-        }
-    })
+    verified = document.querySelector(".coreSpriteVerifiedBadge") ? true : false
 }
 
 if(header.length > 0){

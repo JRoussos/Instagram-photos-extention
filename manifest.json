@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "InstaDP",
-    "version": "0.3.2",
+    "version": "0.3.5",
     "description": "ALPHA Version - Instagram full size user photo",
     "permissions": ["webNavigation", "contextMenus", "tabs", "*://www.instagram.com/*/"],
     "background": {
