@@ -28,5 +28,10 @@ if(header.length > 0){
 }
 
 function click_handler() {
-    window.open("https://www.instadp.com/fullsize/"+header[0].children[0].innerHTML);
+    fetch(`https://www.instagram.com/${header[0].children[0].innerHTML}/?__a=1`)
+        .then(response => response.json())
+        .then(json => window.open(json.graphql.user.profile_pic_url_hd))
+        .catch(err => console.log('Request Failed', err));
+
+        // window.open("https://www.instadp.com/fullsize/"+header[0].children[0].innerHTML);
 }

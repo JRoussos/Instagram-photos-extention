@@ -7,7 +7,11 @@ document.addEventListener("contextmenu", function(event){
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if(request == "get_clicked_element") {
         try{
-            sendResponse({value: clicked_element.parentNode.children[0].getElementsByTagName("img")[0].getAttribute("src")});
+            const element = clicked_element.parentNode.children[0];
+            
+            element.contains(document.querySelector('video')) ? 
+            sendResponse({value: element.getElementsByTagName("video")[0].getAttribute("src") }) :
+            sendResponse({value: element.getElementsByTagName("img")[0].getAttribute("src") })
         }catch (error){
             sendResponse({value: null});
         }

@@ -3,11 +3,14 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.executeScript(tab.id, {file: "stories.js"});
 });
 
-chrome.contextMenus.create({
-    title: "Open picture in new tab",
-    id: 'context_item'
-});
 chrome.contextMenus.onClicked.addListener(context_menu_onClick);
+
+chrome.runtime.onInstalled.addListener(function(){
+    chrome.contextMenus.create({
+        title: "Open post in new tab",
+        id: 'context_item'
+    });
+});
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
     // console.log(tabId, changeInfo, tab);
